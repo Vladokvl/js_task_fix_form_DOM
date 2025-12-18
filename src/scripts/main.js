@@ -1,14 +1,10 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('form input');
 
 for (const input of inputs) {
   let inputName = input.getAttribute('name');
   const inputId = input.getAttribute('id');
-
-  inputName = inputName[0].toUpperCase() + inputName.slice(1);
-  input.setAttribute('placeholder', inputName);
-
   const label = document.createElement('label');
 
   label.textContent = inputName;
@@ -16,6 +12,9 @@ for (const input of inputs) {
   label.setAttribute('for', inputId);
 
   input.parentElement.append(label);
+
+  inputName = inputName[0].toUpperCase() + inputName.slice(1);
+  input.setAttribute('placeholder', inputName);
 }
 
 // write code here
